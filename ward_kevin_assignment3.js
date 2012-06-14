@@ -9,25 +9,25 @@ var say = function(message) { console.log(message); };
 
 // Variables
 var backStory = function () { 
-				say("\"My wife Katt and I have " + howManyDogs + " cute dogs.\"");
-				say("\"One is a boy Chihuahua, the other is a female Puggle.\"");
-				say("\"Their names are Snoopy and Fenix.\"");
-				say("\"They are both so cute, but the Fenix can get really hyper.\"");
-				say("\"If one of us teases her too much she\'ll start whining and get all hyper.\"");
-				say("\"She\'ll move around a lot, wagging her tail and jumping up on us.\"");
-				say("\"We like to call it the " + puggleRam + "\"");
+	say("\"My wife " + Katt.nickName + " and I have " + howManyDogs + " cute dogs.\"");
+	say("\"My Father-in-law also has a dog.\"");
 				
-				for (var key in json.dogs) {
-					var dog = json.dogs[key];
-					say("We have three dogs in our house. Two of them are ours, the other is my father-in-law's.");
-					say("One of the dog's names is " + dog.name + ".");
-					say(dog.name + " is " + dog.age + " years old.");
-					say("S/he is a " + dog.breed + ".");
-					say("We like to call him/her " + dog.nickName + ".");
-					say("We give him/her bones every once in a while, and s/he " + dog.eatsBones + "!");
-				};
+	for (var key in json.dogs) {
+		var dog = json.dogs[key];
+		say("\"One of the dog's names is " + dog.name + ".\"");
+		say("\"" + dog.name + " is " + dog.age + " years old, and is a " 
+			+ dog.sex + " " + dog.breed + ".\"");
+		say("\"We like to call him/her " + dog.nickName + ".\"");
+		say("\"We give him/her bones every once in a while, and s/he " + dog.eatsBones + "!\"");
+	};
+	
+	say("\"They are all so cute, but Fenix can get really hyper.\"");
+	say("\"If one of us teases her too much she\'ll start whining and get all hyperactive.\"");
+	say("\"She\'ll move around a lot, wagging her tail and jumping up on us.\"");
+	say("\"I like to call it the " + puggleRam + "\"");
+	
 };
-var puggleRam = "\"Puggle Rampage!\"";
+var puggleRam = "\'Puggle Rampage!\'";
 var cuteLevel1 = "\"Isn\'t she so cute?\"";
 var cuteLevel2 = "\"She\'s so CUTE!!!\"";
 var howManyDogs = 2;
@@ -54,7 +54,9 @@ var Kevin = {
 	age:				"30",
 	rank:				"Worker Bee",
     works:				true,
-    cars:				[ "Civic", "XTerra" ]
+    schools:			true,
+    cars:				[ "Civic" ],
+    seat:				"driver's seat"
 };
 var Katt = {
 	realName:			"Katrina Ward",
@@ -62,65 +64,54 @@ var Katt = {
 	age:				"25",
 	rank:				"Queen Bee",
     works:				false,
-    cars:				[ "Civic", "Bike" ]
+    schools:			true,
+    cars:				[ "Bike" ],
+    seat:				"passenger's seat"
 };
 
 var myName1 = Kevin.realName;
 var myName2 = Katt.realName;
 
-
-
-// var pirate = { /* stuff here */ },
-//    ship   = { /* more stuff here */ },
-//    target = "Tortuga";
-// pirate.announce("Our target today is " + target + ".");
-// var myName = pirate.getRealName();    // accessor method
-// pirate.announce("We'll find plunder, or my name isn't " + myName + "!");
-// pirate.sailTo(target);                // mutator + procedure method
-// var damage = pirate.attack(target);   // function method
-// pirate.repairDamage(damage, ship);    // object argument
+var driving = function() {
+	say("\*" + Kevin.nickName + " and " + Katt.nickName + " get into the " 
+	+ Kevin.cars + ", with Kevin in the " + Kevin.seat + " and Katt in the " 
+	+ Katt.seat + ".\*");
+	
+	return;
+};
 
 // Canine JSON data Objects
-///*
 var json = {
 	"dogs": [
 		{
-			"UUID": 0001,
+			"UUID": 01,
 			"name": "Snoopy",
 			"sex": "male",
 			"age": 8,
 			"breed": "Chihuahua",
 			"nickName": "Handsome Man",
-			"owner": "Katt",
-			"likesBones": true,
 			"eatsBones": "eats them slowly"
 		},
 		{
-			"UUID": 0002,
+			"UUID": 02,
 			"name": "Fenix",
 			"sex": "female",
 			"age": 5,
 			"breed": "Puggle",
 			"nickName": "Pretty Girl",
-			"owner": "Kevin",
-			"likesBones": true,
 			"eatsBones": "eats them quickly"
 		},
 		{
-			"UUID": 0003,
+			"UUID": 03,
 			"name": "Harley",
 			"sex": "male",
 			"age": 1,
 			"breed": "Shar Pei",
 			"nickName": "Pain in the butt",
-			"owner": "Grant",
-			"likesBones": true,
 			"eatsBones": "just devours them"
 		}
 	]
 };
-
-//*/
 
 // JSON2 Data
 /*
@@ -129,17 +120,17 @@ var json2 = {
 		{
 			"uuid": "001",
 			"name": "Snoopy",
-			"age": 9
+			"age": 8
 		},
 		{
 			"uuid": "002",
 			"name": "Fenix",
-			"age": 6
+			"age": 5
 		},
 		{
 			"uuid": "003",
 			"name": "Harley",
-			"age": 2
+			"age": 1
 		}
 	]
 };
@@ -238,10 +229,10 @@ var toyTeasing = function (pronoun , teaseToy) {
 	if ( toyType === "plushie" ) {
 		say("\"" + pronoun + " thinking of using a " + teaseToy 
 		+ " to tease the Puggle with instead of my face!\"");
-		say("I look around for the " + toyType + ".");
+		say("\*I look around for the " + toyType + ".\*");
 	} else {
 		say("\"" + pronoun + " wanting to tease her with a " + teaseToy + "!\"");
-		say("I look around and find the " + toyType + ".");
+		say("\*I look around and find the " + toyType + ".\*");
 	};
 };
 
@@ -251,11 +242,11 @@ var toyTeasing = function (pronoun , teaseToy) {
 var funToys = function (toyType) {
 	if ( toyType === "plushie" ){
 		for (var i = 0, j = plushTypes.length; i < j; i++) {
-			say( "The " + plushTypes[i] + " plushie, " + plushAvail[i] + " good." );
+			say( "\"The " + plushTypes[i] + " plushie, " + plushAvail[i] + " good.\"" );
 		};
 	} else {
 		for (var i = 0, j = tugRopeTypes.length; i < j; i++) {
-			say( "The " + tugRopeTypes[i] + " tug rope, " + tugRopeAvail[i] + " around here." );
+			say( "\"The " + tugRopeTypes[i] + " tug rope, " + tugRopeAvail[i] + " around here.\"" );
 		};
 	};
 };
@@ -298,7 +289,7 @@ var goToStores = function(storeNames, minPerStore) {
 backStory();
 say("\*I choose to tease the Puggle by saying, " + cuteLevel1 + " and " + cuteLevel2 + "\"");
 teaseTime(true);
-say("\"Okay!\"");
+say("\*" + Kevin.nickName + " says.\* \"Okay!\"");
 say("\*I wag my head back and forth, while whining back at her.\*");
 if (toRam1 === true) {
 	say("\*She gets upset and hyper and she tries to bite my face off!\*");
@@ -332,9 +323,10 @@ if (toRam2 === true){
 };
 say("\*At this point I\'m pretty tired and want to hang out at some shops.\*");
 say("\*I ask my wife where she would want to go.\*");
+say("\"We\'ll find somewhere to go, or our names aren\'t " + myName1 + " and " + myName2 + "!\"");
 say("\*" + Katt.nickName + " says.\* \"How about " + storeNames + "?\"");
 say("\*" + Kevin.nickName + " says.\* \"Sure, that sound\'s great\"");
-say("\"We\'ll find somewhere to go, or our names aren\'t " + myName1 + " and " + myName2 + "!\"");
+driving();
 goToStores(storeNames, minPerStore);
 say("\"That was fun, let\'s do it again tomorrow!\"");
 say("\"The End!\"");

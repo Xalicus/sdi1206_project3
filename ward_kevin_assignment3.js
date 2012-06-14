@@ -11,10 +11,21 @@ var say = function(message) { console.log(message); };
 var backStory = function () { 
 				say("\"My wife Katt and I have " + howManyDogs + " cute dogs.\"");
 				say("\"One is a boy Chihuahua, the other is a female Puggle.\"");
-				say("\"They are both so cute, but the Puggle can get really hyper.\"");
+				say("\"Their names are Snoopy and Fenix.\"");
+				say("\"They are both so cute, but the Fenix can get really hyper.\"");
 				say("\"If one of us teases her too much she\'ll start whining and get all hyper.\"");
 				say("\"She\'ll move around a lot, wagging her tail and jumping up on us.\"");
 				say("\"We like to call it the " + puggleRam + "\"");
+				
+				for (var key in json.dogs) {
+					var dog = json.dogs[key];
+					say("We have three dogs in our house. Two of them are ours, the other is my father-in-law's.");
+					say("One of the dog's names is " + dog.name + ".");
+					say(dog.name + " is " + dog.age + " years old.");
+					say("S/he is a " + dog.breed + ".");
+					say("We like to call him/her " + dog.nickName + ".");
+					say("We give him/her bones every once in a while, and s/he " + dog.eatsBones + "!");
+				};
 };
 var puggleRam = "\"Puggle Rampage!\"";
 var cuteLevel1 = "\"Isn\'t she so cute?\"";
@@ -33,7 +44,177 @@ var wifeJoins = false;
 var laugh = "\"Bwaahaahaa, Ur missing ur face!\"";
 var storeNames = [ "GameStop", "Walmart", "Bookman\'s", "Harkin\'s" ],
 	minPerStore = [ 15, 10, 20, 90 ];
-	
+
+
+// New Variables/Objects
+// Human Objects
+var Kevin = {
+	realName:			"Kevin Ward",
+	nickName:			"Kevin",
+	age:				"30",
+	rank:				"Worker Bee",
+    works:				true,
+    cars:				[ "Civic", "XTerra" ]
+};
+var Katt = {
+	realName:			"Katrina Ward",
+	nickName:			"Katt",
+	age:				"25",
+	rank:				"Queen Bee",
+    works:				false,
+    cars:				[ "Civic", "Bike" ]
+};
+
+var myName1 = Kevin.realName;
+var myName2 = Katt.realName;
+
+
+
+// var pirate = { /* stuff here */ },
+//    ship   = { /* more stuff here */ },
+//    target = "Tortuga";
+// pirate.announce("Our target today is " + target + ".");
+// var myName = pirate.getRealName();    // accessor method
+// pirate.announce("We'll find plunder, or my name isn't " + myName + "!");
+// pirate.sailTo(target);                // mutator + procedure method
+// var damage = pirate.attack(target);   // function method
+// pirate.repairDamage(damage, ship);    // object argument
+
+// Canine JSON data Objects
+///*
+var json = {
+	"dogs": [
+		{
+			"UUID": 0001,
+			"name": "Snoopy",
+			"sex": "male",
+			"age": 8,
+			"breed": "Chihuahua",
+			"nickName": "Handsome Man",
+			"owner": "Katt",
+			"likesBones": true,
+			"eatsBones": "eats them slowly"
+		},
+		{
+			"UUID": 0002,
+			"name": "Fenix",
+			"sex": "female",
+			"age": 5,
+			"breed": "Puggle",
+			"nickName": "Pretty Girl",
+			"owner": "Kevin",
+			"likesBones": true,
+			"eatsBones": "eats them quickly"
+		},
+		{
+			"UUID": 0003,
+			"name": "Harley",
+			"sex": "male",
+			"age": 1,
+			"breed": "Shar Pei",
+			"nickName": "Pain in the butt",
+			"owner": "Grant",
+			"likesBones": true,
+			"eatsBones": "just devours them"
+		}
+	]
+};
+
+//*/
+
+// JSON2 Data
+/*
+var json2 = {
+	"dogs": [
+		{
+			"uuid": "001",
+			"name": "Snoopy",
+			"age": 9
+		},
+		{
+			"uuid": "002",
+			"name": "Fenix",
+			"age": 6
+		},
+		{
+			"uuid": "003",
+			"name": "Harley",
+			"age": 2
+		}
+	]
+};
+
+var handleData = function (json) {
+	for (var i = 0; i < json.dogs.length; i++){
+		var dog = json.dogs[i];
+		say("Name: " + dog.name + ", Age: " + dog.age);
+	};
+};
+
+handleData(json2);
+
+var jsonstring = JSON.stringify(json);
+say(jsonstring);
+
+var recievedjson = JSON.parse(jsonstring);
+say(recievedjson);
+
+*/
+
+
+/*
+var puggle = {
+	realName:			"Fenix",
+	age:				"5",
+	rank:				"Pretty Girl",
+	bite:				"\"Fenix bites my face off!!!\"",
+    privateer:			true,
+    ships:				[ "La Diligent", "Pride" ],
+    sailTo:				function (destination) {},
+    getLocation:		function () {}
+};
+
+var chihuahua = {
+	realName:			"Snoopy",
+	age:				"8",
+	rank:				"Handsome Man",
+	bite:				"\"Snoopy bites my face off!\""
+};
+
+puggle.sailTo("Tortuga");
+say( puggle.realName );
+say( puggle.rank );
+say( chihuahua.realName );
+say( chihuahua.rank );
+say( puggle.bite );
+say( chihuahua.bite );
+say( puggle.age );
+say( chihuahua.age );
+*/
+
+/*
+for (var key in puggle) {
+	console.log("key: " + key + ", value: ", puggle[key]);
+};
+
+for (var key in chihuahua) {
+	console.log("key: " + key + ", value: ", chihuahua[key]);
+};
+*/
+
+// var pirate = { /* stuff here */ },
+//    ship   = { /* more stuff here */ },
+//    target = "Tortuga";
+// pirate.announce("Our target today is " + target + ".");
+// var myName = pirate.getRealName();    // accessor method
+// pirate.announce("We'll find plunder, or my name isn't " + myName + "!");
+// pirate.sailTo(target);                // mutator + procedure method
+// var damage = pirate.attack(target);   // function method
+// pirate.repairDamage(damage, ship);    // object argument
+
+
+
+///*	
 // Argument Function
 // How long should I tease the Puggle?
 // Done
@@ -139,20 +320,24 @@ if (toRam2 === true){
 		say("\*My wife joins in and teases the Puggle, by saying " + cuteLevel1 + "\*");
 		say(puggleRam);
 	} else {
-		say("\*Katt looks at me and laughs saying\* " + laugh);
+		say("\*" + Katt.nickName + " looks at me and laughs saying\* " + laugh);
 	};
 } else {
 	say("\*The Chihuahua looks on, ignores us, and just leaves it to the Puggle.\*");
 	if (wifeJoins === true) {
-		say("\*Katt joins in instead and teases the Puggle, by saying " + cuteLevel1 + "\*");
+		say("\*" + Katt.nickName + " joins in instead and teases the Puggle, by saying " + cuteLevel1 + "\*");
 	} else {
 		say("\*Katt just looks at us and laughs saying\* " + laugh);
 	};
 };
 say("\*At this point I\'m pretty tired and want to hang out at some shops.\*");
 say("\*I ask my wife where she would want to go.\*");
-say("\*Katt says.\* \"How about " + storeNames + "?\"");
-say("\*I say.\* \"Sure, that sound\'s great\"");
+say("\*" + Katt.nickName + " says.\* \"How about " + storeNames + "?\"");
+say("\*" + Kevin.nickName + " says.\* \"Sure, that sound\'s great\"");
+say("\"We\'ll find somewhere to go, or our names aren\'t " + myName1 + " and " + myName2 + "!\"");
 goToStores(storeNames, minPerStore);
 say("\"That was fun, let\'s do it again tomorrow!\"");
 say("\"The End!\"");
+
+
+//*/

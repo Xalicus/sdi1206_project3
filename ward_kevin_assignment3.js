@@ -10,15 +10,16 @@ var say = function(message) { console.log(message); };
 // Variables
 var backStory = function () { 
 	say("\"My wife " + Katt.nickName + " and I have " + howManyDogs + " cute dogs.\"");
-	say("\"My Father-in-law also has a dog.\"");
+	say("\"My Father-in-law also has a dog named Harley.\"");
 				
 	for (var key in json.dogs) {
 		var dog = json.dogs[key];
 		say("\"One of the dog's names is " + dog.name + ".\"");
 		say("\"" + dog.name + " is " + dog.age + " years old, and is a " 
 			+ dog.sex + " " + dog.breed + ".\"");
-		say("\"We like to call him/her " + dog.nickName + ".\"");
-		say("\"We give him/her bones every once in a while, and s/he " + dog.eatsBones + "!\"");
+		say("\"We like to call " + dog.sex2 + " " + dog.nickName + ".\"");
+		say("\"We give the dogs bones every once in a while, and " + dog.heShe 
+			+ " " + dog.eatsBones + "!\"");
 	};
 	
 	say("\"They are all so cute, but Fenix can get really hyper.\"");
@@ -87,6 +88,8 @@ var json = {
 			"UUID": 01,
 			"name": "Snoopy",
 			"sex": "male",
+			"sex2": "him",
+			"heShe": "he",
 			"age": 8,
 			"breed": "Chihuahua",
 			"nickName": "Handsome Man",
@@ -96,6 +99,8 @@ var json = {
 			"UUID": 02,
 			"name": "Fenix",
 			"sex": "female",
+			"sex2": "her",
+			"heShe": "she",
 			"age": 5,
 			"breed": "Puggle",
 			"nickName": "Pretty Girl",
@@ -105,9 +110,11 @@ var json = {
 			"UUID": 03,
 			"name": "Harley",
 			"sex": "male",
+			"sex2": "him",
+			"heShe": "he",
 			"age": 1,
 			"breed": "Shar Pei",
-			"nickName": "Pain in the butt",
+			"nickName": "A pain in the butt",
 			"eatsBones": "just devours them"
 		}
 	]
@@ -212,12 +219,12 @@ for (var key in chihuahua) {
 var teaseTime = function (teasingTime) {
 	aWhile = true;
 	if (teasingTime === aWhile) {
-		say("\"Hey Katt, how long should I tease her for?\"");
+		say("\"Hey Katt, how long should I tease Fenix for?\"");
 		say("\*Katt says.\* \"I\'d say about 10 minutes today.\"");
 	}
 	else {
-		say("\"I shouldn\'t tease her for very long, should I?\"");
-		say("\*Katt says.\* \"Maybe only for 10 seconds.\"");
+		say("\"I shouldn\'t tease Fenix for very long, should I?\"");
+		say("\*Katt says.\* \"Maybe only for 15 seconds.\"");
 	}
 	return;
 };
@@ -228,10 +235,10 @@ var teaseTime = function (teasingTime) {
 var toyTeasing = function (pronoun , teaseToy) {
 	if ( toyType === "plushie" ) {
 		say("\"" + pronoun + " thinking of using a " + teaseToy 
-		+ " to tease the Puggle with instead of my face!\"");
+		+ " to tease Fenix with instead of my face!\"");
 		say("\*I look around for the " + toyType + ".\*");
 	} else {
-		say("\"" + pronoun + " wanting to tease her with a " + teaseToy + "!\"");
+		say("\"" + pronoun + " wanting to tease Fenix with a " + teaseToy + "!\"");
 		say("\*I look around and find the " + toyType + ".\*");
 	};
 };
@@ -287,43 +294,44 @@ var goToStores = function(storeNames, minPerStore) {
 
 // My Puggle Story in code.
 backStory();
-say("\*I choose to tease the Puggle by saying, " + cuteLevel1 + " and " + cuteLevel2 + "\"");
+say("\*I choose to tease Fenix by saying, " + cuteLevel1 + " and " + cuteLevel2 + "\"");
 teaseTime(true);
 say("\*" + Kevin.nickName + " says.\* \"Okay!\"");
 say("\*I wag my head back and forth, while whining back at her.\*");
 if (toRam1 === true) {
-	say("\*She gets upset and hyper and she tries to bite my face off!\*");
+	say("\*Fenix gets upset and hyper and she tries to bite my face off!\*");
 } else {
-	say("\*The Puggle ignores it this time and we have furry snuggles.\*");
+	say("\*Fenix ignores it this time and we have furry snuggles.\*");
 };
 toyTeasing("I\'m" , toyType);
 funToys(toyType);
-say("\*The Puggle is having fun with the " + toyType + ", so she avoids my face for the moment\*");
-say("\*Oh noes!!! I spoke to soon!!! She starts to attack my face again!!!\*");
+say("\*Fenix is having fun with the " + toyType + ", so she avoids my face for the moment\*");
+say("\*Oh noes!!! I spoke to soon!!! Fenix starts to attack my face again!!!\*");
 biting();
 say("\*After the attack, I look in the mirror.\*");
-say("\*I have " + noFace + " inches of flesh on my face left, darn!\*");
+say("\"I have " + noFace + " inches of flesh on my face left, darn!\"");
 say("\"I guess I\'ll have to get plastic surgery then.\"");
-say("\*The Chihuahua looks at us.\*");
+say("\*Snoopy looks at us.\*");
 if (toRam2 === true){
-	say("\*The Chihuahua wants to join in and help bite my face off.\*");
+	say("\*Snoopy wants to join in and help bite my face off.\*");
 	if (howManyDogs > 1 && wifeJoins === true) {
-		say("\*My wife joins in and teases the Puggle, by saying " + cuteLevel1 + "\*");
+		say("\*My wife, " + Katt.nickName + ", joins in and teases Fenix, by saying " + cuteLevel1 + "\*");
 		say(puggleRam);
 	} else {
 		say("\*" + Katt.nickName + " looks at me and laughs saying\* " + laugh);
 	};
 } else {
-	say("\*The Chihuahua looks on, ignores us, and just leaves it to the Puggle.\*");
+	say("\*Snoopy looks on, ignores us, and just leaves it to Fenix.\*");
 	if (wifeJoins === true) {
-		say("\*" + Katt.nickName + " joins in instead and teases the Puggle, by saying " + cuteLevel1 + "\*");
+		say("\*" + Katt.nickName + " joins in instead and teases Fenix, by saying " + cuteLevel1 + "\*");
 	} else {
-		say("\*Katt just looks at us and laughs saying\* " + laugh);
+		say("\*" + Katt.nickName + " just looks at us and laughs saying\* " + laugh);
 	};
 };
 say("\*At this point I\'m pretty tired and want to hang out at some shops.\*");
-say("\*I ask my wife where she would want to go.\*");
-say("\"We\'ll find somewhere to go, or our names aren\'t " + myName1 + " and " + myName2 + "!\"");
+say("\*I ask " + Katt.nickName + " where she would want to go.\*");
+say("\*" + Katt.nickName + " says.\* \"I don\'t know where yet.\"");
+say("\*I say.\* \"We\'ll find somewhere to go, or our names aren\'t " + myName1 + " and " + myName2 + "!\"");
 say("\*" + Katt.nickName + " says.\* \"How about " + storeNames + "?\"");
 say("\*" + Kevin.nickName + " says.\* \"Sure, that sound\'s great\"");
 driving();
